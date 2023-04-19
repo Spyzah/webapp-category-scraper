@@ -3,11 +3,11 @@ from requests import get
 from json import loads
 import pandas as pd
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="")
 
 @app.route('/')
 def home():
-    return render_template('home/index.html')
+    return render_template('index.html')
 
 @app.route('/', methods=['POST'])
 def submit_form():
@@ -53,7 +53,7 @@ def submit_form():
         return render_template('result.html', products=product_data)
 
     except:
-        return render_template('home/index.html', error='Islem basarisiz oldu url\'yi kontrol ediniz.')
+        return render_template('/index.html', error='Islem basarisiz oldu url\'yi kontrol ediniz.')
 
 if __name__ == '__main__':
     app.run(debug=True)
