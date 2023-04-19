@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        a{
+            text-decoration: none;
+            color: red;
+        }
+
+        td{
+            color: orangered;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Ürün Listesi Sonuçları</h1>
+
+    <p>Ürün listesi başarıyla çekildi ve "urunler.xlsx" dosyasına kaydedildi.</p> 
+    <p>Çekilen ürünler:</p>
+    <table>
+        <tr>
+            <th>Ürün İsmi</th>
+            <th>Ürün Linki</th>
+            <th>Ürün Resmi</th>
+            <th>Ürün Fiyatı</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td>{{ product[0] }}</td>
+            <td><a href="{{ product[1] }}" target="_blank">Ürün Sayfası</a></td>
+            <td><img src="{{ product[2] }}" alt="Ürün Resmi" width="100"></td>
+            <td>{{ product[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
